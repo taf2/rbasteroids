@@ -2,7 +2,7 @@ require 'stars/object'
 module Stars
   class Rock < Stars::Object
     def initialize( window )
-      super( window, "media/images/starfighter.png", :accel => (0.1 * rand(0.01)), 
+      super( window, "media/images/mid-rock.png", :accel => (0.1 * rand(0.01)), 
                                                      :angle => rand(640) )
     end
 
