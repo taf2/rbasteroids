@@ -3,7 +3,7 @@ module Stars
   class Rock < Stars::Object
     def initialize( window )
       super( window, "media/images/mid-rock.png", :accel => (0.1 * rand(0.01)), 
-                                                     :angle => rand(640) )
+                                                  :angle => rand(window.width) )
     end
 
     def update( window )
@@ -17,8 +17,8 @@ module Stars
       @rocks = []
       count.times do |c|
         rock = Stars::Rock.new(window)
-        x = rand(640)
-        y = rand(480)
+        x = rand(window.width)
+        y = rand(window.height)
         dist = Gosu::distance(x,y,avoid[:x], avoid[:y])
         if dist < 5
           x += 100
