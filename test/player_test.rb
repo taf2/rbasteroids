@@ -5,6 +5,9 @@ class PlayerTest < Test::Unit::TestCase
 
 	def setup
 		@window = mock()
+		@window.stubs(:width).returns( 640 )
+		@window.stubs(:height).returns( 480 )
+
 		@image = stub( :width => 100, :height => 150 )
 		Gosu::Image.expects(:new).with( @window, "media/images/starfighter.png", true ).returns( @image )
 		@player = Stars::Player.new( @window )
@@ -12,11 +15,10 @@ class PlayerTest < Test::Unit::TestCase
 
 	def test_can_move_to_the_left
 		@window.expects(:button_down?).with( Gosu::Button::KbLeft ).returns( true )
-		#@window.expects(:button_down?).with( Gosu::Button::GpLeft ).returns( true )
 		@window.expects(:button_down?).with( Gosu::Button::KbRight ).returns( false )
 		@window.expects(:button_down?).with( Gosu::Button::GpRight ).returns( false )
 		@window.expects(:button_down?).with( Gosu::Button::KbUp ).returns( true )
-		#@window.expects(:button_down?).with( Gosu::Button::GpButton0 ).returns( false )
+
 		@player.update( @window )
 		assert -4.5, @player.angle
 		assert 0.5, @player.accel

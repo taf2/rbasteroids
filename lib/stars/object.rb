@@ -31,6 +31,7 @@ module Stars
       @x = @y = @vel_x = @vel_y = @angle = 0.0
       @angle = options[:angle] || 0.0
       @accel = options[:accel] || 0.5
+			@window = window
     end
 
     def width
@@ -61,8 +62,8 @@ module Stars
     def move
       @x += @vel_x
       @y += @vel_y
-      @x %= 640
-      @y %= 480
+      @x %= @window.width
+      @y %= @window.height
       @vel_x *= 0.95
       @vel_y *= 0.95
     end
