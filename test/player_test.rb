@@ -18,6 +18,7 @@ class PlayerTest < Test::Unit::TestCase
 		@window.expects(:button_down?).with( Gosu::Button::KbRight ).returns( false )
 		@window.expects(:button_down?).with( Gosu::Button::GpRight ).returns( false )
 		@window.expects(:button_down?).with( Gosu::Button::KbUp ).returns( true )
+		@window.expects(:button_down?).with( Gosu::Button::KbSpace ).returns( false )
 
 		@player.update( @window )
 		assert -4.5, @player.angle
