@@ -1,7 +1,13 @@
+# mostly based on http://code.google.com/p/gosu/wiki/RubyTutorial
+
 require 'rubygems'
 require 'gosu'
 require 'stars/player'
 require 'stars/rock'
+
+module ZOrder
+  Background, Stars, Player, UI = *0..3
+end
 
 class GameWindow < Gosu::Window
 	def initialize
@@ -19,7 +25,7 @@ class GameWindow < Gosu::Window
 	end
 
 	def draw
-		@player.draw
+		@player.draw(self)
     @rocks.draw
 		@bg_image.draw(0,0,0)
 	end
