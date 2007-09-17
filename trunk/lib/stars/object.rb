@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'gosu'
+
 module Stars
 
   module Controllable
@@ -21,7 +24,7 @@ module Stars
   end
 
   class Object
-    attr_reader :x, :y, :width, :height, :angle, :vel_x, :vel_y
+    attr_reader :x, :y, :width, :height, :angle, :accel, :vel_x, :vel_y
 
     def initialize( window, image_path, options = {} )
       @image = Gosu::Image.new(window,image_path,true)
