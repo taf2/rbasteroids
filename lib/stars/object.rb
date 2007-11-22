@@ -1,4 +1,5 @@
 require 'rubygems'
+gem 'gosu'
 require 'gosu'
 
 module Stars

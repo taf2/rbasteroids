@@ -1,3 +1,12 @@
 astriods clone
 
 original art => http://www.armorgames.com/images/games/game_starfighter.gif
+
+
+Install:
+ rubygems >= 0.9.4 
+ sudo gem install mocha gosu
+
+MacOSX 10.5:
+  You may need to modify the gemspec path for gosu:
+  /Library/Ruby/Gems/1.8/specifications/gosu-0.7.7.1-universal-darwin-9.gemspec
